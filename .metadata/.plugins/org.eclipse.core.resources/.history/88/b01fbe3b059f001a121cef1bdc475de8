@@ -1,0 +1,17 @@
+package Lin.Wechat.MainEntry;
+
+import java.net.InetSocketAddress;
+import com.sun.net.httpserver.*;
+import Lin.Wechat.MainEntry.Handler.WXMsgHandler;
+
+public class StartPoint {
+	public static int receivePort = 12345;
+	public static String apiHttp = "http://127.0.0.1:8203/api?json";
+
+	public static void main(String[] arg) throws Exception {
+		//开启服务器接收来自e小天的推送
+		HttpServer server = HttpServer.create(new InetSocketAddress(receivePort), 0);
+		server.createContext("/", new WXMsgHandler());
+		server.start();
+	}
+}

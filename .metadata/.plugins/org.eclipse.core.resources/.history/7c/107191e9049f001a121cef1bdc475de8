@@ -1,0 +1,17 @@
+package Lin.Wechat.MainEntry.Handler;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import org.apache.commons.io.IOUtils;
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+
+class TestHandler implements HttpHandler {
+	public void handle(HttpExchange exchange) throws IOException {
+		/*
+		 * read the
+		 */
+		String response = IOUtils.toString(new InputStreamReader(exchange.getRequestBody(), "UTF-8"));
+		System.out.println(response);
+	}
+}

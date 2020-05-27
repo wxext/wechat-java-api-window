@@ -1,0 +1,10 @@
+package Lin.Wechat.MainEntry;
+
+import java.net.InetSocketAddress;
+import com.sun.net.httpserver.*;
+import Lin.Wechat.MainEntry.Handler.WXMsgHandler;
+
+public class GlobalConfig {
+	public static int receivePort = 12345;
+	public static String apiHttp = "http://127.0.0.1:8203/api?json";
+}

@@ -1,0 +1,26 @@
+package Lin.Wechat.MainEntry.Sender;
+
+import java.util.HashMap;
+
+import Lin.Wechat.MainEntry.GlobalConfig;
+import cn.hutool.http.HttpRequest;
+import cn.hutool.json.JSONObject;
+
+public class Sender {
+	
+	public void sendMsg() {
+		HashMap<Object, Object> map = new HashMap<>(); 
+		map.put("method", "sendText");
+		map.put("wxid", to);
+		map.put("msg", "https://www.baidu.com/");
+		map.put("atid", "");
+		map.put("pid",0);
+		send(map);
+	}
+	
+	public void send(HashMap<Object, Object> map) {
+	    String json = (new JSONObject(map)).toString();
+	    HttpRequest request = HttpRequest.post(GlobalConfig.apiHttp).body(json);
+	    System.out.println(request.execute().body());
+	}
+}

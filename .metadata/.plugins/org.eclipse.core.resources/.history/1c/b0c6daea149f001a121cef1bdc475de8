@@ -1,0 +1,11 @@
+package Lin.Wechat.MainEntry.Sender;
+
+import java.util.Map;
+
+public class Sender {
+	public JsonElement send(String apiHttp, Map map) {
+	    String json = (new JSONObject(map)).toString();
+	    System.out.println(json);
+	    HttpRequest request = HttpRequest.post(apiHttp).body(json);
+	}
+}
