@@ -1,6 +1,13 @@
-LibraryÄ¿Â¼ Çë°Ñjarµ¼Èë¿ª·¢Æ÷ ±¾ÈËÓÃeclipse
-wechatÄ¿Â¼ ³ÌĞòµÄ¸ùÄ¿Â¼
-	src\Lin\Wechat\MainEntry\StartPoint.java		³ÌĞòÈë¿Ú
-	src\Lin\Wechat\MainEntry\GlobalConfig.java		³ÌĞòÅäÖÃ
-	src\Lin\Wechat\MainEntry\Handler\WXMsgHandler.java	½ÓÊÕÑ¶Ï¢
-	src\Lin\Wechat\MainEntry\Sender\Sender.java		·¢ËÍĞÅÏ¢
+==========================================================================<br>
+å£°æ˜<br>
+æ­¤ç¨‹åºæ˜¯åŸºäº<a href="https://www.wxext.cn/home/developer.html">eå°å¤©</a>çš„httpapiå¼€å‘çš„java api<br>
+å¹¶éç‹¬ç«‹å¼€å‘çš„java wechat api<br>
+==========================================================================<br>
+Libraryç›®å½• è¯·æŠŠjarå¯¼å…¥å¼€å‘å™¨ æœ¬äººç”¨eclipse
+wechatç›®å½• ç¨‹åºçš„æ ¹ç›®å½•
+	src\Lin\Wechat\MainEntry\StartPoint.java		ç¨‹åºå…¥å£
+	src\Lin\Wechat\MainEntry\GlobalConfig.java		ç¨‹åºé…ç½®
+	src\Lin\Wechat\MainEntry\Handler\WXMsgHandler.java	æ¥æ”¶è®¯æ¯
+	src\Lin\Wechat\MainEntry\Sender\Sender.java		å‘é€ä¿¡æ¯
+
+===========================================================================
