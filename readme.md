@@ -12,3 +12,5 @@
 管理员身份！！管理员身份！！管理员身份！！重要事情说三次
 打开e小天 如下图
 ![e小天](https://raw.githubusercontent.com/wxext/JavaDemo/master/1.png)
+然后可以关闭了
+打开浏览器 进行配置
