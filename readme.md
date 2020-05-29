@@ -24,6 +24,7 @@
 ![e小天](https://raw.githubusercontent.com/wxext/JavaDemo/master/image/2.png)
 
 # Java 程序调试demo
+由于本人使用eclipse 请手动导入library文件夹内jar文件 
 
 # StartPoint.java
 ```java
