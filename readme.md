@@ -34,7 +34,7 @@ import Test.Listener.onReceiveMessage;
 
 public class StartPoint {
 	public static void main(String[] arg) throws Exception {
-		WXBot bot1 = new WXBot(12345); // this port is below image port1
+		WXBot bot1 = new WXBot(12345); // this port is above image port1
 		bot1.getInfo().setTextMsgEventListener(new onReceiveMessage());
 		bot1.run();
 	}
