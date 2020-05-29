@@ -10,6 +10,7 @@
 
 # 运行
 管理员身份！！管理员身份！！管理员身份！！重要事情说三次
+
 打开e小天 如下图
 
 ![e小天](https://raw.githubusercontent.com/wxext/JavaDemo/master/image/1.png)
@@ -21,3 +22,37 @@
 按下图设置
 
 ![e小天](https://raw.githubusercontent.com/wxext/JavaDemo/master/image/2.png)
+
+# Java 程序调试demo
+
+#StartPoint.java
+package Test;
+
+import Lin.Wechat.WXBot.WXBot;
+import Test.Listener.onReceiveMessage;
+
+public class StartPoint {
+	public static void main(String[] arg) throws Exception {
+		WXBot bot1 = new WXBot(12345); // this port is below image port1
+		bot1.getInfo().setTextMsgEventListener(new onReceiveMessage());
+		bot1.run();
+	}
+}
+
+# onReceiveMessage
+package Test.Listener;
+
+import Lin.Wechat.Handler.Event.Interface.TextMsgEventListener;
+import Lin.Wechat.WXBot.WXBot;
+import cn.hutool.json.JSONObject;
+
+public class onReceiveMessage implements TextMsgEventListener{
+	@Override
+	public void process(JSONObject result, WXBot bot) {
+		System.out.println("LISTENER SUCCESS");
+		System.out.println(result.toString());
+	}	
+}
+
+# 后话
+程序还在编写阶段 将会陆续更新接口
