@@ -39,7 +39,7 @@ public class StartPoint {
 		bot1.run();
 	}
 }
-```java
+```
 
 # onReceiveMessage.java
 ```java
@@ -56,7 +56,7 @@ public class onReceiveMessage implements TextMsgEventListener{
 		System.out.println(result.toString());
 	}	
 }
-```java
+```
 
 # 后话
 程序还在编写阶段 将会陆续更新接口 欢迎大家一起讨论 Q群666736222
