@@ -8,3 +8,4 @@
 + [PC微信安装](https://pc.weixin.qq.com/ "微信 PC 版")支持最新版微信（每个人最新版不一样咋办呀?那就都支持）
 + [e小天运行库](https://www.wxext.cn/app/install.html "")
 
+# 运行e小天
