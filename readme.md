@@ -25,7 +25,7 @@
 
 # Java 程序调试demo
 
-#StartPoint.java
+# StartPoint.java
 package Test;
 
 import Lin.Wechat.WXBot.WXBot;
@@ -39,7 +39,7 @@ public class StartPoint {
 	}
 }
 
-# onReceiveMessage
+# onReceiveMessage.java
 package Test.Listener;
 
 import Lin.Wechat.Handler.Event.Interface.TextMsgEventListener;
@@ -55,4 +55,4 @@ public class onReceiveMessage implements TextMsgEventListener{
 }
 
 # 后话
-程序还在编写阶段 将会陆续更新接口
+程序还在编写阶段 将会陆续更新接口 欢迎大家一起讨论 Q群666736222
