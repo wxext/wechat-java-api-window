@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 声明
 此程序是基于[e小天](https://www.wxext.cn "e小天")的httpapi开发的java api
 并非独立开发的java wechat api
@@ -13,6 +12,12 @@
 管理员身份！！管理员身份！！管理员身份！！重要事情说三次
 打开e小天 如下图
 
-![e小天](https://raw.githubusercontent.com/wxext/JavaDemo/master/1.png)
+![e小天](https://raw.githubusercontent.com/wxext/JavaDemo/master/image/1.png)
 
 然后可以关闭了
+
+打开浏览器 进入[设置页面](https://www.wxext.cn/app/settings.html "")
+
+按下图设置
+
+![e小天](https://raw.githubusercontent.com/wxext/JavaDemo/master/image/2.png)
