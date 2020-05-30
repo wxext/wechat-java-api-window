@@ -9,19 +9,13 @@
 + [e小天运行库](https://www.wxext.cn/app/install.html "")
 
 # 运行
-管理员身份！！管理员身份！！管理员身份！！重要事情说三次
+右键管理员身份打开e小天 点击启动服务 (管理员身份！！管理员身份！！管理员身份！！重要事情说三次 ) 然后可以关闭了
 
-打开e小天 如下图
-
-![e小天](https://raw.githubusercontent.com/wxext/JavaDemo/master/image/1.png)
-
-然后可以关闭了
-
-打开浏览器 进入[设置页面](https://www.wxext.cn/app/settings.html "")
-
-按下图设置
-
-![e小天](https://raw.githubusercontent.com/wxext/JavaDemo/master/image/2.png)
+打开浏览器 进入[设置页面](https://www.wxext.cn/app/settings.html "") 
+设置如下
+通知地址http://127.0.0.1:12345
+勾选事件那里全部勾选 因为有一些事件就算你用不上 javaapi也需求用上
+最后点设置
 
 # Java 程序调试demo
 由于本人使用eclipse 请手动导入library文件夹内jar文件 
