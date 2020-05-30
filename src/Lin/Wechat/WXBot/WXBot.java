@@ -42,7 +42,6 @@ public class WXBot {
 			Thread.sleep(1000);
 			new EventGetQrCode(new WechatLoginQR(this).send(), this);
 		}
-		//System.out.println(info.getPid());
 		return this;
 	}
 }
