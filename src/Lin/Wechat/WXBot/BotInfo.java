@@ -14,7 +14,7 @@ public class BotInfo {
 	String apiHttp = "http://127.0.0.1:8203/api?json";
 	Date authDate, expireDate;
 	JFrame jf;
-	String nickName, wxid;
+	String nickName, wxid, mac;
 	String QRPath = "C:\\QRGenerate\\";
 	int pid;
 }

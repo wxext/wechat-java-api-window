@@ -15,7 +15,6 @@ import Lin.Wechat.Sender.Command.WechatLoginQR;
 import Lin.Wechat.WXBot.WXBot;
 import cn.hutool.json.JSONObject;
 
-@SuppressWarnings("restriction")
 public class WXMsgHandler implements HttpHandler {
 	WXBot bot;
 
@@ -100,11 +99,12 @@ public class WXMsgHandler implements HttpHandler {
 			break;
 		case 721:
 			// 登录信息-连接;
-			new EventGetQrCode(new WechatLoginQR(bot).send(), bot);
+			//new WechatLoginQR(bot).send();
+			while(new WechatLoginQR(bot).send().getStr("msg").equals("get fail"));
 			break;
 		case 723:
 			// 登录信息-登录二维码变化;
-			new EventGetQrCode(rep, bot);
+			new EventGetQrCode().result(rep, bot);
 			break;
 		case 724:
 			// 登录信息-微信登录;

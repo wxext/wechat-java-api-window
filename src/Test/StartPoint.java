@@ -1,14 +1,13 @@
 package Test;
 
 import Lin.Wechat.WXBot.WXBot;
-import Test.Listener.onReceiveMessage;
+import Test.Listener.onTextMessageReceive;
 
 public class StartPoint {
 
 	public static void main(String[] arg) throws Exception {
-		WXBot bot1 = new WXBot(12345);
-		bot1.setTextMsgEventListener(new onReceiveMessage());
-		bot1.run();
-		//new WXBot(12345).run();
+		WXBot bot = new WXBot(12345);
+		bot.setTextMsgEventListener(new onTextMessageReceive());
+		bot.run();
 	}
 }

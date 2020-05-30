@@ -19,6 +19,7 @@ public class Sender {
 		// 请求发送
 		HttpRequest request = HttpRequest.post(bot.getInfo().getApiHttp()).body(json);
 		// 回传结果
-		return JSONUtil.parseObj(request.execute().body());
+		JSONObject result = JSONUtil.parseObj(request.execute().body());
+		return result;
 	}
 }

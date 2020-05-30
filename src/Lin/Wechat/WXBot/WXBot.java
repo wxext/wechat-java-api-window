@@ -6,6 +6,7 @@ import com.sun.net.httpserver.*;
 import Lin.Wechat.Handler.WXMsgHandler;
 import Lin.Wechat.Handler.Event.Interface.EventListener;
 import Lin.Wechat.Handler.Event.Login.EventGetQrCode;
+import Lin.Wechat.Sender.XTMAC;
 import Lin.Wechat.Sender.Command.WechatLoginQR;
 import Lin.Wechat.Sender.Command.WechatOpener;
 import cn.hutool.json.JSONObject;
@@ -15,6 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WXBot {
+	//小天Token
+	String token;
 	// 文本消息
 	EventListener textMsgEventListener;
 	// 图片消息
@@ -74,18 +77,17 @@ public class WXBot {
 		server.createContext("/", new WXMsgHandler(this));
 		// 开启服务器
 		server.start();
-		JSONObject wxOpenResult = new WechatOpener(this).send(false);
+		JSONObject wxOpenResult = new WechatOpener(this).send(true);
 		// 如果已经启动 获取登陆QR code
 		if (wxOpenResult.getInt("pid") == 0) {
 			int pid = Integer.parseInt(wxOpenResult.getStr("msg").replace("微信[", "").replace("]已经运行过了", ""));
 			info.setPid(pid);
-			Thread.sleep(1000);
-			new EventGetQrCode(new WechatLoginQR(this).send(), this);
+			while(new WechatLoginQR(this).send().getStr("msg").equals("get fail"));
 		} else {
 			info.setPid(wxOpenResult.getInt("pid"));
-			Thread.sleep(1000);
-			new EventGetQrCode(new WechatLoginQR(this).send(), this);
 		}
+		String data = new XTMAC(this).send().getStr("data");
+		this.info.setMac(data);
 		return this;
 	}
 }
