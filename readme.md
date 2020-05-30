@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-# ÉùÃ÷
-´Ë³ÌĞòÊÇ»ùÓÚ[eĞ¡Ìì](https://www.wxext.cn "eĞ¡Ìì")µÄhttpapi¿ª·¢µÄjava api
-²¢·Ç¶ÀÁ¢¿ª·¢µÄjava wechat api
-
-# ÅäÖÃ
-+ [eĞ¡Ìì](https://www.wxext.cn/app/install.html "°²×°eĞ¡Ìì")
-+ [jdk1.8+](https://www.oracle.com/java/technologies/ "Java")
-+ [PCÎ¢ĞÅ°²×°](https://pc.weixin.qq.com/ "Î¢ĞÅ PC °æ")Ö§³Ö×îĞÂ°æÎ¢ĞÅ£¨Ã¿¸öÈË×îĞÂ°æ²»Ò»ÑùÕ¦°ìÑ½?ÄÇ¾Í¶¼Ö§³Ö£©
-+ [eĞ¡ÌìÔËĞĞ¿â](https://www.wxext.cn/app/install.html "")
-
-# ÔËĞĞ
-¹ÜÀíÔ±Éí·İ£¡£¡¹ÜÀíÔ±Éí·İ£¡£¡¹ÜÀíÔ±Éí·İ£¡£¡ÖØÒªÊÂÇéËµÈı´Î
-´ò¿ªeĞ¡Ìì ÈçÏÂÍ¼
-![eĞ¡Ìì](https://raw.githubusercontent.com/wxext/JavaDemo/master/1.png)
-È»ºó¿ÉÒÔ¹Ø±ÕÁË
-´ò¿ªä¯ÀÀÆ÷ ½øĞĞÅäÖÃ
-=======
 # å£°æ˜
 æ­¤ç¨‹åºæ˜¯åŸºäº[eå°å¤©](https://www.wxext.cn "eå°å¤©")çš„httpapiå¼€å‘çš„java api
 å¹¶éç‹¬ç«‹å¼€å‘çš„java wechat api
@@ -28,8 +10,54 @@
 
 # è¿è¡Œ
 ç®¡ç†å‘˜èº«ä»½ï¼ï¼ç®¡ç†å‘˜èº«ä»½ï¼ï¼ç®¡ç†å‘˜èº«ä»½ï¼ï¼é‡è¦äº‹æƒ…è¯´ä¸‰æ¬¡
+
 æ‰“å¼€eå°å¤© å¦‚ä¸‹å›¾
-![eå°å¤©](https://raw.githubusercontent.com/wxext/JavaDemo/master/1.png)
+
+![eå°å¤©](https://raw.githubusercontent.com/wxext/JavaDemo/master/image/1.png)
+
 ç„¶åå¯ä»¥å…³é—­äº†
-æ‰“å¼€æµè§ˆå™¨ è¿›è¡Œé…ç½®
->>>>>>> eb043b6e619a90f216d04722afb85142fddf5acd
+
+æ‰“å¼€æµè§ˆå™¨ è¿›å…¥[è®¾ç½®é¡µé¢](https://www.wxext.cn/app/settings.html "")
+
+æŒ‰ä¸‹å›¾è®¾ç½®
+
+![eå°å¤©](https://raw.githubusercontent.com/wxext/JavaDemo/master/image/2.png)
+
+# Java ç¨‹åºè°ƒè¯•demo
+ç”±äºæœ¬äººä½¿ç”¨eclipse è¯·æ‰‹åŠ¨å¯¼å…¥libraryæ–‡ä»¶å¤¹å†…jaræ–‡ä»¶ 
+
+# StartPoint.java
+```java
+package Test;
+
+import Lin.Wechat.WXBot.WXBot;
+import Test.Listener.onReceiveMessage;
+
+public class StartPoint {
+	public static void main(String[] arg) throws Exception {
+		WXBot bot1 = new WXBot(12345); // this port is above image port1
+		bot1.getInfo().setTextMsgEventListener(new onReceiveMessage());
+		bot1.run();
+	}
+}
+```
+
+# onReceiveMessage.java
+```java
+package Test.Listener;
+
+import Lin.Wechat.Handler.Event.Interface.TextMsgEventListener;
+import Lin.Wechat.WXBot.WXBot;
+import cn.hutool.json.JSONObject;
+
+public class onReceiveMessage implements TextMsgEventListener{
+	@Override
+	public void process(JSONObject result, WXBot bot) {
+		System.out.println("LISTENER SUCCESS");
+		System.out.println(result.toString());
+	}	
+}
+```
+
+# åè¯
+ç¨‹åºè¿˜åœ¨ç¼–å†™é˜¶æ®µ å°†ä¼šé™†ç»­æ›´æ–°æ¥å£ æ¬¢è¿å¤§å®¶ä¸€èµ·è®¨è®º Qç¾¤666736222
