@@ -1,4 +1,4 @@
-#语言(Language)
+# 语言(Language)
 
 [English](https://github.com/wxext/wechat-java-api-window/blob/master/readme_english.md "English") version about the readme.md
 
