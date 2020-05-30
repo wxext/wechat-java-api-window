@@ -7,7 +7,7 @@ public class StartPoint {
 
 	public static void main(String[] arg) throws Exception {
 		WXBot bot1 = new WXBot(12345);
-		bot1.getInfo().setTextMsgEventListener(new onReceiveMessage());
+		bot1.setTextMsgEventListener(new onReceiveMessage());
 		bot1.run();
 		//new WXBot(12345).run();
 	}

@@ -6,10 +6,12 @@ import cn.hutool.json.JSONObject;
 
 public class EventGetQrCode {
 	public EventGetQrCode(JSONObject json, WXBot bot) {
-		String qr = new JSONObject(json.get("data")).get("qr").toString();
+		String data = json.getStr("data");
+		System.out.println(data);
+		String qr = new JSONObject(data).get("qr").toString();
 		try {
 			if (bot.getInfo().getJf() != null) bot.getInfo().getJf().dispose();
-			bot.getInfo().setJf(QRCode.show("http://weixin.qq.com/x/" + qr, bot.getInfo().getQRPath()));
+			bot.getInfo().setJf(new QRCode().show("http://weixin.qq.com/x/" + qr, bot.getInfo().getQRPath()));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
