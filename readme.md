@@ -1,3 +1,6 @@
+#语言(Language)
+[English](https://github.com/wxext/wechat-java-api-window/blob/master/readme_english.md "English") version about the readme.md
+
 # 声明
 此程序是基于[e小天](https://www.wxext.cn "e小天")的httpapi开发的java api
 并非独立开发的java wechat api
