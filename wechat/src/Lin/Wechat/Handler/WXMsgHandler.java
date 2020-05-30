@@ -39,45 +39,59 @@ public class WXMsgHandler implements HttpHandler {
 			break;
 		case 34:
 			// 语音消息;
+			bot.getInfo().getVoiceMsgEventListener().process(rep, bot);
 			break;
 		case 37:
 			// 好友确认消息;
+			bot.getInfo().getFriendConfirmEventListener().process(rep, bot);
 			break;
 		case 43:
 			// 视频消息;
+			bot.getInfo().getVideoMsgEventListener().process(rep, bot);
 			break;
 		case 47:
 			// 动画表情;
+			bot.getInfo().getAnimationImgEventListener().process(rep, bot);
 			break;
 		case 48:
 			// 位置消息;
+			bot.getInfo().getLocationMsgEventListener().process(rep, bot);
 			break;
 		case 49:
 			// 分享链接;
+			bot.getInfo().getShareLinkEventListener().process(rep, bot);
 			break;
 		case 701:
 			// 群成员信息更新;
+			bot.getInfo().getGroupMemberInfoUpdateEventListener().process(rep, bot);
 			break;
 		case 702:
 			// 群成员增加;
+			bot.getInfo().getGroupMemberIncreaseEventListener().process(rep, bot);
 			break;
 		case 703:
 			// 群成员减少;
+			bot.getInfo().getGroupMemberDecreaseEventListener().process(rep, bot);
 			break;
 		case 704:
 			// 联系人信息更新;
+			bot.getInfo().getFriendInfoUpdateEventListener().process(rep, bot);
 			break;
 		case 705:
 			// 收款结果;
+			bot.getInfo().getReceivePaymentEventListener().process(rep, bot);
 			break;
 		case 706:
 			// 好友验证结果;
+			bot.getInfo().getFriendAuthEventListener().process(rep, bot);
 			break;
 		case 707:
 			// 创建群聊结果;
+			bot.getInfo().getCreateGroupEventListener().process(rep, bot);
 			break;
 		case 708:
 			// xml图片地址;
+			bot.getInfo().getXMLImgPathEventListener().process(rep, bot);
 			break;
 		case 720:
 			// 登录信息-授权;
@@ -101,12 +115,15 @@ public class WXMsgHandler implements HttpHandler {
 			break;
 		case 726:
 			// 发起语音通过;
+			bot.getInfo().getVoiceCallEventListener().process(rep, bot);
 			break;
 		case 727:
 			// 拒绝语音通话;
+			bot.getInfo().getVoiceCallRejectEventListener().process(rep, bot);
 			break;
 		case 728:
 			// 接受语音通话;
+			bot.getInfo().getVoiceCallAcceptEventListener().process(rep, bot);
 			break;
 		case 802:
 			// 插件连接断开;
