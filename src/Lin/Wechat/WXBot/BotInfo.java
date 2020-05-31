@@ -17,4 +17,5 @@ public class BotInfo {
 	String nickName, wxid, mac;
 	String QRPath = "C:\\QRGenerate\\";
 	int pid;
+	boolean isLogin = false;
 }

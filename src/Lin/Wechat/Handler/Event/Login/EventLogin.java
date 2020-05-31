@@ -13,6 +13,7 @@ public class EventLogin {
 	@SuppressWarnings("deprecation")
 	public EventLogin(JSONObject json, WXBot bot) {
 		System.out.println("µÇÂ½³É¹¦ ...");
+		bot.getInfo().setLogin(true);
 		bot.getInfo().getJf().dispose();
 		String wxid = new JSONObject(json.getStr("data")).getStr("wxid");
 		String url = "https://api.wxext.cn/auth?";

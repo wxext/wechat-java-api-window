@@ -2,6 +2,8 @@ package Lin.Wechat.Sender;
 
 import java.util.HashMap;
 
+import com.vdurmont.emoji.EmojiParser;
+
 import Lin.Wechat.WXBot.WXBot;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONObject;
@@ -16,6 +18,7 @@ public class Sender {
 	public JSONObject send(HashMap<Object, Object> map) {
 		// json封装
 		String json = (new JSONObject(map)).toString();
+		json = EmojiParser.parseToUnicode(json);
 		// 请求发送
 		HttpRequest request = HttpRequest.post(bot.getInfo().getApiHttp()).body(json);
 		// 回传结果
