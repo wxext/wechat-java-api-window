@@ -29,9 +29,9 @@ public class WXMsgHandler implements HttpHandler {
 		// 接收来自e小天的推送
 		String response = EmojiParser
 				.parseToAliases(IOUtils.toString(new InputStreamReader(exchange.getRequestBody(), "UTF-8")));
-		// System.out.println(alias);
+		//System.out.println(alias);
 		// 打印接收回来的json
-		System.out.println(response);
+		//System.out.println(response);
 		JSONObject rep = new JSONObject(response);
 		if (bot.getInfo().getPid() != rep.getInt("pid")) {
 			// System.out.println("PID incorrect");
@@ -53,7 +53,7 @@ public class WXMsgHandler implements HttpHandler {
 			break;
 		case 37:
 			// 好友确认消息;
-			bot.getMsgHandler().onFriendConfirmMessage(event);
+			bot.getMsgHandler().onFriendMessage(event);
 			break;
 		case 43:
 			// 视频消息;
@@ -150,6 +150,7 @@ public class WXMsgHandler implements HttpHandler {
 			break;
 		case 10000:
 			// 系统消息;
+			bot.getMsgHandler().onSystemMessage(event);
 			break;
 		}
 	}

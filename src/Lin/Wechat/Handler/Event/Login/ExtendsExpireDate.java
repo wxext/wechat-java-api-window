@@ -9,12 +9,14 @@ import Lin.Wechat.Sender.XTAuth;
 import Lin.Wechat.WXBot.WXBot;
 import cn.hutool.json.JSONObject;
 
-public class ExtendsExpireDate {
+public class ExtendsExpireDate extends Thread{
 	WXBot bot;
 
 	public ExtendsExpireDate(WXBot bot) {
 		this.bot = bot;
-
+	}
+	@SuppressWarnings("deprecation")
+	public void run(){
 		String url = "https://api.wxext.cn/auth?";
 		url += "wxid=" + bot.getInfo().getWxid();
 		url += "&";
@@ -23,7 +25,9 @@ public class ExtendsExpireDate {
 		bot.getInfo().setAuthDate(authResult.getDate("auth"));
 		bot.getInfo().setExpireDate(authResult.getDate("expire"));
 		bot.getInfo().setNickName(authResult.getStr("nickName"));
-		new BindXTAndWx(bot).send();
+		bot.setToken(authResult.getStr("token"));
+		System.out.println(bot.getToken());
+		System.out.println(new BindXTAndWx(bot).send());
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String str = "获取信息 " + " Auth:";
 		str += df.format(bot.getInfo().getAuthDate());
@@ -36,6 +40,5 @@ public class ExtendsExpireDate {
 		} catch (InterruptedException e) {
 		}
 		new ExtendsExpireDate(bot);
-
 	}
 }

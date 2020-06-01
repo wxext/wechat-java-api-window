@@ -194,5 +194,15 @@ public class Event {
 		map.put("pid", getBot().getInfo().getPid());
 		return new Sender(bot).send(map);
 	}
+	
+	public JSONObject agreeFriend(String v1, String v2) {
+
+		HashMap<Object, Object> map = new HashMap<>();
+		map.put("method", "agreeUser");
+		map.put("v1", v1);
+		map.put("v2", v2);
+		map.put("pid", getBot().getInfo().getPid());
+		return new Sender(bot).send(map);
+	}
 }
 

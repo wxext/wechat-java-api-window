@@ -11,7 +11,7 @@ public interface EventHandler {
 	public void onVoiceMessage(Event event);
 
 	// 好友确认消息 37
-	public void onFriendConfirmMessage(Event event);
+	public void onFriendMessage(Event event);
 
 	// 视频消息 43
 	public void onVideoMessage(Event event);
@@ -67,5 +67,6 @@ public interface EventHandler {
 	// 微信连接断开 803
 	// 系统提示点击确定 810
 	// 系统消息 10000
+	public void onSystemMessage(Event event);
 
 }

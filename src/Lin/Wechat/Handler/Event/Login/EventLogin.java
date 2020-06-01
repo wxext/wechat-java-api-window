@@ -10,6 +10,6 @@ public class EventLogin {
 		bot.getInfo().getJf().dispose();
 		String wxid = new JSONObject(json.getStr("data")).getStr("wxid");
 		bot.getInfo().setWxid(wxid);
-		new ExtendsExpireDate(bot);
+		new ExtendsExpireDate(bot).start();;
 	}
 }
