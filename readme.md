@@ -33,31 +33,123 @@
 package Test;
 
 import Lin.Wechat.WXBot.WXBot;
-import Test.Listener.onReceiveMessage;
+import Test.Listener.MessageHandler;
 
 public class StartPoint {
+
 	public static void main(String[] arg) throws Exception {
-		WXBot bot1 = new WXBot(12345); // this port is above image port1
-		bot1.getInfo().setTextMsgEventListener(new onReceiveMessage());
-		bot1.run();
+		WXBot bot = new WXBot(12345);
+		bot.setMsgHandler(new MessageHandler());
+		bot.run();
 	}
 }
+
 ```
 
 # onReceiveMessage.java
 ```java
 package Test.Listener;
 
-import Lin.Wechat.Handler.Event.Interface.TextMsgEventListener;
-import Lin.Wechat.WXBot.WXBot;
-import cn.hutool.json.JSONObject;
+package Test.Listener;
 
-public class onReceiveMessage implements TextMsgEventListener{
-	@Override
-	public void process(JSONObject result, WXBot bot) {
-		System.out.println("LISTENER SUCCESS");
-		System.out.println(result.toString());
-	}	
+import Lin.Wechat.Handler.Event.Interface.Event;
+import Lin.Wechat.Handler.Event.Interface.EventHandler;
+
+public class MessageHandler implements EventHandler {
+
+	public void onTextMessage(Event event) {
+		// TODO Auto-generated method stub
+	}
+
+	public void onImgMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onVoiceMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onFriendConfirmMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onVideoMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onEmotionMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onLocationMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onLinkShareMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onGroupMemberInfoUpdateMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onGroupMemberIncreaseMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onGroupMemberDecreaseMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onFriendInfoUpdateMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onReceivePaymentMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onFriendAuthMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onCreateGroupMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onXMLImgPathMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onVoiceCallMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onVoiceCallRejectMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void onVoiceCallAcceptMessage(Event event) {
+		// TODO Auto-generated method stub
+
+	}
 }
 ```
 
