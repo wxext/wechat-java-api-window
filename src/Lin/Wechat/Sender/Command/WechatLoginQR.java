@@ -12,7 +12,6 @@ public class WechatLoginQR extends Sender{
 	}
 
 	public JSONObject send() {
-		System.out.println("动态二维码生成");
 		HashMap<Object, Object> map = new HashMap<>();
 		map.put("method", "gotoQr");
 		map.put("pid", getBot().getInfo().getPid());

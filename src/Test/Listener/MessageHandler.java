@@ -24,7 +24,7 @@ public class MessageHandler implements EventHandler {
 		String v1 = "";
 		String v2 = "";
 		String wxid = "";
-		String str = event.getResult().getJSONObject("data").getStr("msg");
+		String str = event.getResult().getStr("msg");
 		String[] msg = str.split(" ");
 		for (String s : msg) {
 			if (s.indexOf("fromusername=") != -1) {
@@ -46,13 +46,11 @@ public class MessageHandler implements EventHandler {
 		System.out.println(v1);
 		System.out.println(v2);
 		System.out.println(event.agreeFriend(v1, v2).toString());
-		/*
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {}
-		*/
 		event.sendTextMessage(wxid, "Welcome to add me friend", "");
-		event.sendGroupInvite("17771809858@chatroom", wxid);
+		//event.sendGroupInvite("17771809858@chatroom", wxid);
 	}
 
 	public void onVideoMessage(Event event) {

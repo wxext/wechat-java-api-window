@@ -11,11 +11,11 @@ public class WechatOpener extends Sender{
 		super(bot);
 	}
 
-	public JSONObject send(boolean isNew) {
-		System.out.println("打开一个WX");
+	public JSONObject send(int pid) {
+		System.out.print(pid == -1 ? "打开一个WX" : "获取pid " + pid + "\n");
 		HashMap<Object, Object> map = new HashMap<>();
 		map.put("method", "run");
-		map.put("pid", (isNew ? -1 : 0));
+		map.put("pid", pid);
 		return send(map);
 	}
 }

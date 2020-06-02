@@ -19,6 +19,7 @@ public class Sender {
 		// json封装
 		String json = (new JSONObject(map)).toString();
 		json = EmojiParser.parseToUnicode(json);
+		//System.out.println(json);
 		// 请求发送
 		HttpRequest request = HttpRequest.post(bot.getInfo().getApiHttp()).body(json);
 		// 回传结果

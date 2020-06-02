@@ -13,7 +13,7 @@ public class Event {
 	WXBot bot;
 
 	public Event(JSONObject result, WXBot bot) {
-		this.result = result;
+		this.result = result.getJSONObject("data");
 		this.bot = bot;
 	}
 
@@ -46,7 +46,7 @@ public class Event {
 		HashMap<Object, Object> map = new HashMap<>();
 		map.put("method", "sendEmojiForward");
 		map.put("wxid", to_wxid);
-		map.put("xml", event.getResult().getJSONObject("data").getStr("msg"));
+		map.put("xml", event.getResult().getStr("msg"));
 		map.put("pid", getBot().getInfo().getPid());
 		return new Sender(bot).send(map);
 	}
@@ -60,7 +60,7 @@ public class Event {
 		HashMap<Object, Object> map = new HashMap<>();
 		map.put("method", "sendAppmsgForward");
 		map.put("wxid", to_wxid);
-		map.put("xml", event.getResult().getJSONObject("data").getStr("msg"));
+		map.put("xml", event.getResult().getStr("msg"));
 		map.put("pid", getBot().getInfo().getPid());
 		return new Sender(bot).send(map);
 	}

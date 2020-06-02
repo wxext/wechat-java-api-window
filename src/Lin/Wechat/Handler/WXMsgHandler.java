@@ -11,32 +11,25 @@ import com.sun.net.httpserver.HttpHandler;
 import com.vdurmont.emoji.EmojiParser;
 
 import Lin.Wechat.Handler.Event.Interface.Event;
-import Lin.Wechat.Handler.Event.Login.EventGetQrCode;
 import Lin.Wechat.Handler.Event.Login.EventLogin;
 import Lin.Wechat.Handler.Event.Login.EventLoginAuth;
 import Lin.Wechat.Sender.Command.WechatLoginQR;
+import Lin.Wechat.WXBot.Global;
 import Lin.Wechat.WXBot.WXBot;
 import cn.hutool.json.JSONObject;
 
 public class WXMsgHandler implements HttpHandler {
-	WXBot bot;
-
-	public WXMsgHandler(WXBot bot) {
-		this.bot = bot;
-	}
 
 	public void handle(HttpExchange exchange) throws UnsupportedEncodingException, IOException {
 		// 接收来自e小天的推送
 		String response = EmojiParser
 				.parseToAliases(IOUtils.toString(new InputStreamReader(exchange.getRequestBody(), "UTF-8")));
-		//System.out.println(alias);
 		// 打印接收回来的json
-		//System.out.println(response);
+		// System.out.println(response);
 		JSONObject rep = new JSONObject(response);
-		if (bot.getInfo().getPid() != rep.getInt("pid")) {
-			// System.out.println("PID incorrect");
+		WXBot bot = getBot(rep.getInt("pid"));
+		if (bot == null)
 			return;
-		}
 		Event event = new Event(rep, bot);
 		switch (rep.getInt("type")) {
 		case 1:
@@ -109,15 +102,22 @@ public class WXMsgHandler implements HttpHandler {
 			break;
 		case 721:
 			// 登录信息-连接;
+			/*
+			System.out.println("动态二维码生成");
 			String qrRequestResult;
 			do {
 				qrRequestResult = new WechatLoginQR(bot).send().getStr("msg");
-				// System.out.println("MSG " + str);
+				qrRequestResult = new WechatLoginQR(bot).send().getStr("msg");
+				qrRequestResult = new WechatLoginQR(bot).send().getStr("msg");
+				qrRequestResult = new WechatLoginQR(bot).send().getStr("msg");
+				// System.out.println("MSG " + qrRequestResult);
 			} while (qrRequestResult.equals("get fail") || qrRequestResult.equals("InitWaiting"));
+			*/
 			break;
 		case 723:
 			// 登录信息-登录二维码变化;
-			new EventGetQrCode().result(rep, bot);
+			//System.out.println("动态二维码更新");
+			// new EventGetQrCode().result(rep, bot);
 			break;
 		case 724:
 			// 登录信息-微信登录;
@@ -153,5 +153,13 @@ public class WXMsgHandler implements HttpHandler {
 			bot.getMsgHandler().onSystemMessage(event);
 			break;
 		}
+	}
+
+	private WXBot getBot(Integer pid) {
+		for (WXBot bot : Global.login.getQueue()) {
+			if (bot.getInfo().getPid() == pid)
+				return bot;
+		}
+		return null;
 	}
 }
