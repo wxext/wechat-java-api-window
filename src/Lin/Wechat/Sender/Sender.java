@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.vdurmont.emoji.EmojiParser;
 
+import Lin.Wechat.WXBot.Global;
 import Lin.Wechat.WXBot.WXBot;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONObject;
@@ -21,7 +22,7 @@ public class Sender {
 		json = EmojiParser.parseToUnicode(json);
 		//System.out.println(json);
 		// 请求发送
-		HttpRequest request = HttpRequest.post(bot.getInfo().getApiHttp()).body(json);
+		HttpRequest request = HttpRequest.post(Global.apiHttp).body(json);
 		// 回传结果
 		JSONObject result = JSONUtil.parseObj(request.execute().body());
 		return result;

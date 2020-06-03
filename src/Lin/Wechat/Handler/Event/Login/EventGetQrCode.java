@@ -1,6 +1,6 @@
 package Lin.Wechat.Handler.Event.Login;
 
-import Lin.Wechat.QRCode.QRCode;
+import Lin.ExtraFunction.QRCode;
 import Lin.Wechat.WXBot.WXBot;
 import cn.hutool.json.JSONObject;
 

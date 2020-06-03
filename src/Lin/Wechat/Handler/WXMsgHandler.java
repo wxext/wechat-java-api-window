@@ -11,6 +11,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.vdurmont.emoji.EmojiParser;
 
 import Lin.Wechat.Handler.Event.Interface.Event;
+import Lin.Wechat.Handler.Event.Login.EventGetQrCode;
 import Lin.Wechat.Handler.Event.Login.EventLogin;
 import Lin.Wechat.Handler.Event.Login.EventLoginAuth;
 import Lin.Wechat.Sender.Command.WechatLoginQR;
@@ -102,22 +103,16 @@ public class WXMsgHandler implements HttpHandler {
 			break;
 		case 721:
 			// 登录信息-连接;
-			/*
 			System.out.println("动态二维码生成");
 			String qrRequestResult;
 			do {
 				qrRequestResult = new WechatLoginQR(bot).send().getStr("msg");
-				qrRequestResult = new WechatLoginQR(bot).send().getStr("msg");
-				qrRequestResult = new WechatLoginQR(bot).send().getStr("msg");
-				qrRequestResult = new WechatLoginQR(bot).send().getStr("msg");
-				// System.out.println("MSG " + qrRequestResult);
 			} while (qrRequestResult.equals("get fail") || qrRequestResult.equals("InitWaiting"));
-			*/
 			break;
 		case 723:
 			// 登录信息-登录二维码变化;
-			//System.out.println("动态二维码更新");
-			// new EventGetQrCode().result(rep, bot);
+			System.out.println("动态二维码更新");
+			new EventGetQrCode().result(rep, bot);
 			break;
 		case 724:
 			// 登录信息-微信登录;

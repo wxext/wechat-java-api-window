@@ -11,7 +11,6 @@ import lombok.Setter;
 @Setter
 public class BotInfo {
 	int port;
-	String apiHttp = "http://127.0.0.1:8203/api?json";
 	Date authDate, expireDate;
 	JFrame jf;
 	String nickName, wxid, mac;

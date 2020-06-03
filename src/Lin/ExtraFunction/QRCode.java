@@ -1,4 +1,4 @@
-package Lin.Wechat.QRCode;
+package Lin.ExtraFunction;
 
 import java.awt.Dimension;
 import java.io.File;

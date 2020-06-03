@@ -1,7 +1,9 @@
 package Test.Listener;
 
+import Lin.ExtraFunction.DatConvertor;
 import Lin.Wechat.Handler.Event.Interface.Event;
 import Lin.Wechat.Handler.Event.Interface.EventHandler;
+import Lin.Wechat.WXBot.Global;
 
 public class MessageHandler implements EventHandler {
 
@@ -109,7 +111,10 @@ public class MessageHandler implements EventHandler {
 
 	public void onXMLImgPathMessage(Event event) {
 		// TODO Auto-generated method stub
-
+		System.out.println("path " + event.getResult().getStr("path"));
+		String datCon = new DatConvertor().convert(event.getResult().getStr("path"),Global.outputPath);
+		System.out.println(datCon);
+		event.sendImgMessage("filehelper", datCon, true);
 	}
 
 	public void onVoiceCallMessage(Event event) {
