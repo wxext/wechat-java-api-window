@@ -111,7 +111,7 @@ public class WXMsgHandler implements HttpHandler {
 			break;
 		case 723:
 			// 登录信息-登录二维码变化;
-			System.out.println("动态二维码更新");
+			// System.out.println("动态二维码更新");
 			new EventGetQrCode().result(rep, bot);
 			break;
 		case 724:
