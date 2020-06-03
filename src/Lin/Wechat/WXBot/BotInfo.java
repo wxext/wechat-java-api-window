@@ -14,7 +14,6 @@ public class BotInfo {
 	Date authDate, expireDate;
 	JFrame jf;
 	String nickName, wxid, mac;
-	String QRPath = "C:\\QRGenerate\\";
 	int pid;
 	boolean isLogin = false;
 }

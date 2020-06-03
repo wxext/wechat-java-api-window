@@ -16,7 +16,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WXBot extends Thread {
-	// Ğ¡ÌìToken
 	String token;
 	EventHandler MsgHandler;
 	BotInfo info = new BotInfo();
@@ -31,9 +30,9 @@ public class WXBot extends Thread {
 			HttpServer server;
 			try {
 				server = HttpServer.create(new InetSocketAddress(Global.receivePushServerPort), 0);
-				// ¶¨ÒåWXMsgHandlerÎª½ÓÊÕÏûÏ¢µÄ´¦ÀíÆ÷
+				// å®šä¹‰WXMsgHandlerä¸ºæ¥æ”¶æ¶ˆæ¯çš„å¤„ç†å™¨
 				server.createContext("/", new WXMsgHandler());
-				// ¿ªÆô·şÎñÆ÷
+				// å¼€å¯æœåŠ¡å™¨
 				server.start();
 				Global.isServerStarted = true;
 			} catch (IOException e) {
@@ -41,10 +40,9 @@ public class WXBot extends Thread {
 			}
 		}
 		JSONObject wxOpenResult = new WechatOpener(this).send(-1);
-		// Èç¹ûÒÑ¾­Æô¶¯ »ñÈ¡µÇÂ½QR code
+		// å¦‚æœå·²ç»å¯åŠ¨ è·å–ç™»é™†QR code
 		if (wxOpenResult.getInt("pid") == 0) {
-			int pid = Integer.parseInt(wxOpenResult.getStr("msg").replace("Î¢ĞÅ[", "").replace("]ÒÑ¾­ÔËĞĞ¹ıÁË", ""));
-			info.setPid(pid);
+			int pid = Integer.parseInt(wxOpenResult.getStr("msg").replace("å¾®ä¿¡[", "").replace("]å·²ç»è¿è¡Œè¿‡äº†", ""));			info.setPid(pid);
 			while (new WechatLoginQR(this).send().getStr("msg").equals("get fail"))
 				;
 		} else {

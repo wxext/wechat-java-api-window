@@ -7,16 +7,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class DatConvertor {
-
-	/**
-	 * @param path
-	 *            Í¼Æ¬Ä¿Â¼µØÖ·
-	 * @param targetPath
-	 *            ×ª»»ºóÄ¿Â¼
-	 * @return
-	 * @throws IOException
-	 * @throws FileNotFoundException
-	 */
 	public String convert(String path, String output_path) {
 		String output = null;
 		AtomicReference<Integer> integer = new AtomicReference<>(0);
@@ -33,7 +23,7 @@ public class DatConvertor {
 			OutputStream writer = new FileOutputStream(output);
 			byte[] bytes = new byte[1024 * 10];
 			int b;
-			while ((b = reader.read(bytes)) != -1) {// ÕâÀïµÄin.read(bytes);¾ÍÊÇ°ÑÊäÈëÁ÷ÖĞµÄ¶«Î÷£¬Ğ´Èëµ½ÄÚ´æÖĞ£¨bytes£©¡£
+			while ((b = reader.read(bytes)) != -1) {// è¿™é‡Œçš„in.read(bytes);å°±æ˜¯æŠŠè¾“å…¥æµä¸­çš„ä¸œè¥¿ï¼Œå†™å…¥åˆ°å†…å­˜ä¸­ï¼ˆbytesï¼‰ã€‚
 				for (int i = 0; i < bytes.length; i++) {
 					bytes[i] = (byte) (int) (bytes[i] ^ (int) xor[1]);
 					if (i == (b - 1)) {
@@ -44,8 +34,8 @@ public class DatConvertor {
 				writer.flush();
 			}
 			integer.set(integer.get() + 1);
-			// System.out.println(fr.getName() + "(´óĞ¡:" + ((double) fr.length()
-			// / 1000) + "kb,Òì»òÖµ:" + xor[1] + ")");
+			// System.out.println(fr.getName() + "(å¤§å°:" + ((double) fr.length()
+			// / 1000) + "kb,å¼‚æˆ–å€¼:" + xor[1] + ")");
 			return output;
 		} catch (Exception e) {
 			System.out.println(e.toString());
@@ -54,7 +44,7 @@ public class DatConvertor {
 	}
 
 	/**
-	 * ÅĞ¶ÏÍ¼Æ¬Òì»òÖµ
+	 * åˆ¤æ–­å›¾ç‰‡å¼‚æˆ–å€¼
 	 *
 	 * @param file
 	 * @return
@@ -107,9 +97,9 @@ public class DatConvertor {
 		FILE_TYPE_MAP.put("89504e470d0a1a0a0000", "png"); // PNG (png)
 		FILE_TYPE_MAP.put("47494638396126026f01", "gif"); // GIF (gif)
 		FILE_TYPE_MAP.put("49492a00227105008037", "tif"); // TIFF (tif)
-		FILE_TYPE_MAP.put("424d228c010000000000", "bmp"); // 16É«Î»Í¼(bmp)
-		FILE_TYPE_MAP.put("424d8240090000000000", "bmp"); // 24Î»Î»Í¼(bmp)
-		FILE_TYPE_MAP.put("424d8e1b030000000000", "bmp"); // 256É«Î»Í¼(bmp)
+		FILE_TYPE_MAP.put("424d228c010000000000", "bmp"); // 16è‰²ä½å›¾(bmp)
+		FILE_TYPE_MAP.put("424d8240090000000000", "bmp"); // 24ä½ä½å›¾(bmp)
+		FILE_TYPE_MAP.put("424d8e1b030000000000", "bmp"); // 256è‰²ä½å›¾(bmp)
 		FILE_TYPE_MAP.put("41433130313500000000", "dwg"); // CAD (dwg)
 		FILE_TYPE_MAP.put("3c21444f435459504520", "html"); // HTML (html)
 		FILE_TYPE_MAP.put("3c21646f637479706520", "htm"); // HTM (htm)
@@ -121,19 +111,19 @@ public class DatConvertor {
 		FILE_TYPE_MAP.put("46726f6d3a203d3f6762", "eml"); // Email [Outlook
 															// Express 6] (eml)
 		FILE_TYPE_MAP.put("d0cf11e0a1b11ae10000", "doc"); // MS Excel
-															// ×¢Òâ£ºword¡¢msi ºÍ
-															// excelµÄÎÄ¼şÍ·Ò»Ñù
-		FILE_TYPE_MAP.put("d0cf11e0a1b11ae10000", "vsd"); // Visio »æÍ¼
+															// æ³¨æ„ï¼šwordã€msi å’Œ
+															// excelçš„æ–‡ä»¶å¤´ä¸€æ ·
+		FILE_TYPE_MAP.put("d0cf11e0a1b11ae10000", "vsd"); // Visio ç»˜å›¾
 		FILE_TYPE_MAP.put("5374616E64617264204A", "mdb"); // MS Access
 															// (http://www.amjmh.com)
 		FILE_TYPE_MAP.put("252150532D41646F6265", "ps");
 		FILE_TYPE_MAP.put("255044462d312e360d25", "pdf"); // Adobe Acrobat (pdf)
-		FILE_TYPE_MAP.put("2e524d46000000120001", "rmvb"); // rmvb/rmÏàÍ¬
-		FILE_TYPE_MAP.put("464c5601050000000900", "flv"); // flvÓëf4vÏàÍ¬
+		FILE_TYPE_MAP.put("2e524d46000000120001", "rmvb"); // rmvb/rmç›¸åŒ
+		FILE_TYPE_MAP.put("464c5601050000000900", "flv"); // flvä¸f4vç›¸åŒ
 		FILE_TYPE_MAP.put("00000020667479706973", "mp4");
 		FILE_TYPE_MAP.put("49443303000000000f76", "mp3");
 		FILE_TYPE_MAP.put("000001ba210001000180", "mpg"); //
-		FILE_TYPE_MAP.put("3026b2758e66cf11a6d9", "wmv"); // wmvÓëasfÏàÍ¬
+		FILE_TYPE_MAP.put("3026b2758e66cf11a6d9", "wmv"); // wmvä¸asfç›¸åŒ
 		FILE_TYPE_MAP.put("524946464694c9015741", "wav"); // Wave (wav)
 		FILE_TYPE_MAP.put("52494646d07d60074156", "avi");
 		FILE_TYPE_MAP.put("4d546864000000060001", "mid"); // MIDI (mid)
@@ -141,20 +131,20 @@ public class DatConvertor {
 		FILE_TYPE_MAP.put("526172211a0700cf9073", "rar");
 		FILE_TYPE_MAP.put("235468697320636f6e66", "ini");
 		FILE_TYPE_MAP.put("504b03040a0000000000", "jar");
-		FILE_TYPE_MAP.put("4d5a9000030000000400", "exe");// ¿ÉÖ´ĞĞÎÄ¼ş
-		FILE_TYPE_MAP.put("3c25402070616765206c", "jsp");// jspÎÄ¼ş
-		FILE_TYPE_MAP.put("4d616e69666573742d56", "mf");// MFÎÄ¼ş
-		FILE_TYPE_MAP.put("3c3f786d6c2076657273", "xml");// xmlÎÄ¼ş
-		FILE_TYPE_MAP.put("efbbbf2f2a0d0a53514c", "sql");// xmlÎÄ¼ş
-		FILE_TYPE_MAP.put("7061636b616765207765", "java");// javaÎÄ¼ş
-		FILE_TYPE_MAP.put("406563686f206f66660d", "bat");// batÎÄ¼ş
-		FILE_TYPE_MAP.put("1f8b0800000000000000", "gz");// gzÎÄ¼ş
-		FILE_TYPE_MAP.put("6c6f67346a2e726f6f74", "properties");// batÎÄ¼ş
-		FILE_TYPE_MAP.put("cafebabe0000002e0041", "class");// batÎÄ¼ş
-		FILE_TYPE_MAP.put("49545346030000006000", "chm");// batÎÄ¼ş
-		FILE_TYPE_MAP.put("04000000010000001300", "mxp");// batÎÄ¼ş
-		FILE_TYPE_MAP.put("504b0304140006000800", "docx");// docxÎÄ¼ş
-		FILE_TYPE_MAP.put("d0cf11e0a1b11ae10000", "wps");// WPSÎÄ×Öwps¡¢±í¸ñet¡¢ÑİÊ¾dps¶¼ÊÇÒ»ÑùµÄ
+		FILE_TYPE_MAP.put("4d5a9000030000000400", "exe");// å¯æ‰§è¡Œæ–‡ä»¶
+		FILE_TYPE_MAP.put("3c25402070616765206c", "jsp");// jspæ–‡ä»¶
+		FILE_TYPE_MAP.put("4d616e69666573742d56", "mf");// MFæ–‡ä»¶
+		FILE_TYPE_MAP.put("3c3f786d6c2076657273", "xml");// xmlæ–‡ä»¶
+		FILE_TYPE_MAP.put("efbbbf2f2a0d0a53514c", "sql");// xmlæ–‡ä»¶
+		FILE_TYPE_MAP.put("7061636b616765207765", "java");// javaæ–‡ä»¶
+		FILE_TYPE_MAP.put("406563686f206f66660d", "bat");// batæ–‡ä»¶
+		FILE_TYPE_MAP.put("1f8b0800000000000000", "gz");// gzæ–‡ä»¶
+		FILE_TYPE_MAP.put("6c6f67346a2e726f6f74", "properties");// batæ–‡ä»¶
+		FILE_TYPE_MAP.put("cafebabe0000002e0041", "class");// batæ–‡ä»¶
+		FILE_TYPE_MAP.put("49545346030000006000", "chm");// batæ–‡ä»¶
+		FILE_TYPE_MAP.put("04000000010000001300", "mxp");// batæ–‡ä»¶
+		FILE_TYPE_MAP.put("504b0304140006000800", "docx");// docxæ–‡ä»¶
+		FILE_TYPE_MAP.put("d0cf11e0a1b11ae10000", "wps");// WPSæ–‡å­—wpsã€è¡¨æ ¼etã€æ¼”ç¤ºdpséƒ½æ˜¯ä¸€æ ·çš„
 		FILE_TYPE_MAP.put("6431303a637265617465", "torrent");
 		FILE_TYPE_MAP.put("494d4b48010100000200", "264");
 

@@ -32,7 +32,7 @@ public class ExtendsExpireDate extends Thread {
 		//System.out.println(bot.getToken());
 		//System.out.println(new BindXTAndWx(bot).send());
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		String str = "获取信息 " + " Auth:";
+		String str = "鑾峰彇淇℃伅 " + " Auth:";
 		str += df.format(bot.getInfo().getAuthDate());
 		str += " Expire:";
 		str += df.format(bot.getInfo().getExpireDate());

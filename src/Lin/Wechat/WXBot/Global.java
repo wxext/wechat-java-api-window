@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
 import cn.hutool.json.JSONArray;
 
 public class Global {
@@ -14,7 +13,8 @@ public class Global {
 	public static int receivePushServerPort = 1234;
 	public static boolean isServerStarted = false;
 	public static String outputPath = "C:\\bot\\img";
-
+	public static String QRPath = "C:\\QRGenerate\\";
+	
 	public static void setupPushEventServer() {
 		String json = "{\"method\": \"notify\"}";
 		HttpRequest request = HttpRequest.post(apiHttp).body(json);

@@ -22,10 +22,10 @@ import cn.hutool.json.JSONObject;
 public class WXMsgHandler implements HttpHandler {
 
 	public void handle(HttpExchange exchange) throws UnsupportedEncodingException, IOException {
-		// ½ÓÊÕÀ´×ÔeĞ¡ÌìµÄÍÆËÍ
+		// æ¥æ”¶æ¥è‡ªeå°å¤©çš„æ¨é€
 		String response = EmojiParser
 				.parseToAliases(IOUtils.toString(new InputStreamReader(exchange.getRequestBody(), "UTF-8")));
-		// ´òÓ¡½ÓÊÕ»ØÀ´µÄjson
+		// æ‰“å°æ¥æ”¶å›æ¥çš„json
 		// System.out.println(response);
 		JSONObject rep = new JSONObject(response);
 		WXBot bot = getBot(rep.getInt("pid"));
@@ -34,117 +34,117 @@ public class WXMsgHandler implements HttpHandler {
 		Event event = new Event(rep, bot);
 		switch (rep.getInt("type")) {
 		case 1:
-			// ÎÄ±¾ÏûÏ¢;
+			// æ–‡æœ¬æ¶ˆæ¯;
 			bot.getMsgHandler().onTextMessage(event);
 			break;
 		case 3:
-			// Í¼Æ¬ÏûÏ¢;
+			// å›¾ç‰‡æ¶ˆæ¯;
 			bot.getMsgHandler().onImgMessage(event);
 			break;
 		case 34:
-			// ÓïÒôÏûÏ¢;
+			// è¯­éŸ³æ¶ˆæ¯;
 			bot.getMsgHandler().onVoiceMessage(event);
 			break;
 		case 37:
-			// ºÃÓÑÈ·ÈÏÏûÏ¢;
+			// å¥½å‹ç¡®è®¤æ¶ˆæ¯;
 			bot.getMsgHandler().onFriendMessage(event);
 			break;
 		case 43:
-			// ÊÓÆµÏûÏ¢;
+			// è§†é¢‘æ¶ˆæ¯;
 			bot.getMsgHandler().onVideoMessage(event);
 			break;
 		case 47:
-			// ¶¯»­±íÇé;
+			// åŠ¨ç”»è¡¨æƒ…;
 			bot.getMsgHandler().onEmotionMessage(event);
 			break;
 		case 48:
-			// Î»ÖÃÏûÏ¢;
+			// ä½ç½®æ¶ˆæ¯;
 			bot.getMsgHandler().onLocationMessage(event);
 			break;
 		case 49:
-			// ·ÖÏíÁ´½Ó;
+			// åˆ†äº«é“¾æ¥;
 			bot.getMsgHandler().onLinkShareMessage(event);
 			break;
 		case 701:
-			// Èº³ÉÔ±ĞÅÏ¢¸üĞÂ;
+			// ç¾¤æˆå‘˜ä¿¡æ¯æ›´æ–°;
 			bot.getMsgHandler().onGroupMemberInfoUpdateMessage(event);
 			break;
 		case 702:
-			// Èº³ÉÔ±Ôö¼Ó;
+			// ç¾¤æˆå‘˜å¢åŠ ;
 			bot.getMsgHandler().onGroupMemberIncreaseMessage(event);
 			break;
 		case 703:
-			// Èº³ÉÔ±¼õÉÙ;
+			// ç¾¤æˆå‘˜å‡å°‘;
 			bot.getMsgHandler().onGroupMemberDecreaseMessage(event);
 			break;
 		case 704:
-			// ÁªÏµÈËĞÅÏ¢¸üĞÂ;
+			// è”ç³»äººä¿¡æ¯æ›´æ–°;
 			bot.getMsgHandler().onFriendInfoUpdateMessage(event);
 			break;
 		case 705:
-			// ÊÕ¿î½á¹û;
+			// æ”¶æ¬¾ç»“æœ;
 			bot.getMsgHandler().onReceivePaymentMessage(event);
 			break;
 		case 706:
-			// ºÃÓÑÑéÖ¤½á¹û;
+			// å¥½å‹éªŒè¯ç»“æœ;
 			bot.getMsgHandler().onFriendAuthMessage(event);
 			break;
 		case 707:
-			// ´´½¨ÈºÁÄ½á¹û;
+			// åˆ›å»ºç¾¤èŠç»“æœ;
 			bot.getMsgHandler().onCreateGroupMessage(event);
 			break;
 		case 708:
-			// xmlÍ¼Æ¬µØÖ·;
+			// xmlå›¾ç‰‡åœ°å€;
 			bot.getMsgHandler().onXMLImgPathMessage(event);
 			break;
 		case 720:
-			// µÇÂ¼ĞÅÏ¢-ÊÚÈ¨;
+			// ç™»å½•ä¿¡æ¯-æˆæƒ;
 			new EventLoginAuth(rep, bot);
 			break;
 		case 721:
-			// µÇÂ¼ĞÅÏ¢-Á¬½Ó;
-			System.out.println("¶¯Ì¬¶şÎ¬ÂëÉú³É");
+			// ç™»å½•ä¿¡æ¯-è¿æ¥;
+			System.out.println("åŠ¨æ€äºŒç»´ç ç”Ÿæˆ");
 			String qrRequestResult;
 			do {
 				qrRequestResult = new WechatLoginQR(bot).send().getStr("msg");
 			} while (qrRequestResult.equals("get fail") || qrRequestResult.equals("InitWaiting"));
 			break;
 		case 723:
-			// µÇÂ¼ĞÅÏ¢-µÇÂ¼¶şÎ¬Âë±ä»¯;
-			// System.out.println("¶¯Ì¬¶şÎ¬Âë¸üĞÂ");
+			// ç™»å½•ä¿¡æ¯-ç™»å½•äºŒç»´ç å˜åŒ–;
+			// System.out.println("åŠ¨æ€äºŒç»´ç æ›´æ–°");
 			new EventGetQrCode().result(rep, bot);
 			break;
 		case 724:
-			// µÇÂ¼ĞÅÏ¢-Î¢ĞÅµÇÂ¼;
+			// ç™»å½•ä¿¡æ¯-å¾®ä¿¡ç™»å½•;
 			new EventLogin(rep, bot);
 			break;
 		case 725:
-			// µÇÂ¼ĞÅÏ¢-Î¢ĞÅÍË³ö;
+			// ç™»å½•ä¿¡æ¯-å¾®ä¿¡é€€å‡º;
 			// System.exit(0);
 			break;
 		case 726:
-			// ·¢ÆğÓïÒôÍ¨¹ı;
+			// å‘èµ·è¯­éŸ³é€šè¿‡;
 			bot.getMsgHandler().onVoiceCallMessage(event);
 			break;
 		case 727:
-			// ¾Ü¾øÓïÒôÍ¨»°;
+			// æ‹’ç»è¯­éŸ³é€šè¯;
 			bot.getMsgHandler().onVoiceCallRejectMessage(event);
 			break;
 		case 728:
-			// ½ÓÊÜÓïÒôÍ¨»°;
+			// æ¥å—è¯­éŸ³é€šè¯;
 			bot.getMsgHandler().onVoiceCallAcceptMessage(event);
 			break;
 		case 802:
-			// ²å¼şÁ¬½Ó¶Ï¿ª;
+			// æ’ä»¶è¿æ¥æ–­å¼€;
 			break;
 		case 803:
-			// Î¢ĞÅÁ¬½Ó¶Ï¿ª;
+			// å¾®ä¿¡è¿æ¥æ–­å¼€;
 			break;
 		case 810:
-			// ÏµÍ³ÌáÊ¾µã»÷È·¶¨;
+			// ç³»ç»Ÿæç¤ºç‚¹å‡»ç¡®å®š;
 			break;
 		case 10000:
-			// ÏµÍ³ÏûÏ¢;
+			// ç³»ç»Ÿæ¶ˆæ¯;
 			bot.getMsgHandler().onSystemMessage(event);
 			break;
 		}

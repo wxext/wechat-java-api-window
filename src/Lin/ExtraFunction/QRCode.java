@@ -24,7 +24,7 @@ public class QRCode {
 	}
 
 	public JFrame showQRGUI(String path) {
-		System.out.println("¶şÎ¬ÂëÒÑ¾­Éú³É Â·¾¶:" + path);
+		System.out.println("äºŒç»´ç ç”Ÿæˆè·¯å¾„:" + path);
 		JFrame jf = new JFrame();
 		//jf.setLocation(700, 200);
 		jf.setPreferredSize(new Dimension(300, 300));
