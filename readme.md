@@ -14,6 +14,10 @@
 + [nodeJs](https://nodejs.org/zh-cn/ "")
 
 # 运行
+上述程序全部安装完成之后 打开cmd 执行如下指令
+npm i wxext -g
+wxext init
+
 右键管理员身份打开e小天 点击启动服务 (管理员身份！！管理员身份！！管理员身份！！重要事情说三次 ) 然后可以关闭了
 
 # Java 程序调试demo
