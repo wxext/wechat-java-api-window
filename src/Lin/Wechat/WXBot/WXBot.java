@@ -16,6 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WXBot extends Thread {
+	// this is come from 'src/Lin/Wechat/Handler/Event/Login/ExtendsExpireDate.java'
+	// if this field is null. please check the program in the above path.
 	String token;
 	EventHandler MsgHandler;
 	BotInfo info = new BotInfo();
@@ -42,7 +44,8 @@ public class WXBot extends Thread {
 		JSONObject wxOpenResult = new WechatOpener(this).send(-1);
 		// 如果已经启动 获取登陆QR code
 		if (wxOpenResult.getInt("pid") == 0) {
-			int pid = Integer.parseInt(wxOpenResult.getStr("msg").replace("微信[", "").replace("]已经运行过了", ""));			info.setPid(pid);
+			int pid = Integer.parseInt(wxOpenResult.getStr("msg").replace("微信[", "").replace("]已经运行过了", ""));			
+			info.setPid(pid);
 			while (new WechatLoginQR(this).send().getStr("msg").equals("get fail"))
 				;
 		} else {
